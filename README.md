@@ -9,7 +9,7 @@ Like the name says: everything arrives in one box, assembles itself, and you cus
   <img alt="A Flatpack scaffold showing forms, charts, controls, tables, tabs, and avatars in light mode" src="assets/flatpack-light.png">
 </picture>
 
-*An actual scaffold output, browsable as a full showcase: left-nav with every component and foundation listed, live demos for all ~60 components, and foundations pages for colors, typography, spacing, radius, shadows, motion, and icons. Light and dark ship working out of the box.*
+*An actual scaffold output — and exactly what the skill installs for you, showcase included (it's bundled in [`assets/showcase/`](assets/showcase/) and copied in during scaffold, not rebuilt each time). Light and dark ship working out of the box.*
 
 **[Live demo →](https://flatpack-demo.vercel.app)** — click through every component and foundation yourself. The demo's source is in [`demo/`](demo/).
 
@@ -27,11 +27,13 @@ Run the skill in an empty directory, and a few minutes later:
 |---|---|
 | Framework | **Next.js** (App Router) + TypeScript + ESLint |
 | Styling | **Tailwind v4** (CSS-first config) |
+| Type | **IBM Plex Sans + Mono** via next/font |
 | Components | The **full shadcn/ui kit** (~60 components: tables, charts, sidebar, calendar, dialogs, command menu, …) built on **Base UI** primitives — copied in as source you own |
 | Forms | **react-hook-form + zod**, working with validation day one |
-| Motion | **motion** (motion.dev) |
+| Motion | **motion** (motion.dev), plus duration/easing tokens and reusable variants in `src/lib/motion.ts` |
 | Theming | **next-themes** — light/dark wired into the layout with a working toggle |
-| Proof | A kitchen-sink playground page, `typecheck` + production build verified green before handoff |
+| **Showcase** | A built-in system browser: left-nav over every component (live demo + Preview/Code tabs + copy button + image-background toggle) and foundations pages — colors with the 22 primitive Tailwind ramps, typography, spacing, radius, shadows, motion, icons |
+| Proof | `typecheck` + production build verified green before handoff |
 
 Everything at latest majors, everything stock defaults, plus an initial git commit.
 

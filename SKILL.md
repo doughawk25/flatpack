@@ -27,7 +27,7 @@ This gives Next.js (App Router) + TypeScript + Tailwind v4 (CSS-first config via
 Two environment gotchas to expect:
 
 - **No pnpm on the machine?** Run every `pnpm`/`pnpm dlx` command as `npx -y pnpm@latest <args>` (or `corepack enable` first if corepack exists).
-- **pnpm v11 blocks postinstall scripts** and may report "pnpm install has failed" with `ERR_PNPM_IGNORED_BUILDS` for `sharp`/`unrs-resolver` even though the scaffold is fine. Non-interactive fix (`pnpm approve-builds` prompts): edit the auto-generated `pnpm-workspace.yaml` to allow those builds, then `pnpm install` again:
+- **pnpm v11 blocks postinstall scripts** and may report "pnpm install has failed" with `ERR_PNPM_IGNORED_BUILDS` for `sharp`/`unrs-resolver` even though the scaffold is fine. Non-interactive fix (`pnpm approve-builds` prompts): replace the auto-generated `pnpm-workspace.yaml` contents with just the block below (pnpm also writes an `ignoredBuiltDependencies` list and placeholder `allowBuilds` values — remove them, or they re-suppress the builds), then `pnpm install` again:
 
 ```yaml
 allowBuilds:
