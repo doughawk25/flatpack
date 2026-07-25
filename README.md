@@ -9,9 +9,9 @@ Like the name says: everything arrives in one box, assembles itself, and you cus
   <img alt="A Flatpack scaffold showing forms, charts, controls, tables, tabs, and avatars in light mode" src="assets/flatpack-light.png">
 </picture>
 
-*This screenshot is an actual, unmodified scaffold output — the kitchen-sink playground page the skill generates and verifies. Light and dark ship working out of the box.*
+*An actual scaffold output, browsable as a full showcase: left-nav with every component and foundation listed, live demos for all ~60 components, and foundations pages for colors, typography, spacing, radius, shadows, motion, and icons. Light and dark ship working out of the box.*
 
-**[Live demo →](https://flatpack-demo.vercel.app)** — the same untouched scaffold output, deployed as-is.
+**[Live demo →](https://flatpack-demo.vercel.app)** — click through every component and foundation yourself. The demo's source is in [`demo/`](demo/).
 
 ## Why
 
