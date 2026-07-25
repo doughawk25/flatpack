@@ -125,6 +125,19 @@ git init && git add -A && git commit -m "Scaffold base system: Next.js + Tailwin
 
 Report back: what was created, where, the dev command, the full component inventory now available, and a one-line "what's stock" note (Tailwind theme untouched, shadcn defaults, no custom tokens yet). Point out the intended workflow: build and validate flows on the stock kit now; customize tokens and components later, as deliberate decisions.
 
+## Step 6 (optional): Share it
+
+The point of this foundation is validating flows with users and stakeholders — and stakeholders don't run `pnpm dev`. If the user wants a shareable link, and only then, check whether the Vercel CLI is already authenticated:
+
+```bash
+npx -y vercel whoami
+```
+
+- **Authenticated** → offer to deploy and, if the user agrees, run `npx -y vercel deploy --prod --yes` from the project directory and hand back the URL. Use `--prod` deliberately: *preview* deployments sit behind Vercel's deployment protection by default, so anonymous stakeholders get an SSO wall instead of the app; production deploys are public, which is what a validation link needs.
+- **Not authenticated** → don't stall the scaffold on a login flow, and never create an account or log in on the user's behalf. Just note that `npx vercel` (after they log in) or any other host gets it live in one command, and finish.
+
+This step must never cause the scaffold to fail — it's a bonus mile when the road is already paved.
+
 ## Principles
 
 - **Complete over minimal.** The deliverable is a foundation someone can build a real product on the same day — full component kit, forms, charts, theming, motion all wired and verified. Never hand off a half-stocked starter.

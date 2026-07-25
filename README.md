@@ -11,6 +11,8 @@ Like the name says: everything arrives in one box, assembles itself, and you cus
 
 *This screenshot is an actual, unmodified scaffold output — the kitchen-sink playground page the skill generates and verifies. Light and dark ship working out of the box.*
 
+**[Live demo →](https://flatpack-demo.vercel.app)** — the same untouched scaffold output, deployed as-is.
+
 ## Why
 
 Product teams lose weeks at the start of a project wiring up the same foundation — and then lose more time validating UX on a half-stocked starter where every missing component stalls a flow. Flatpack inverts that: you get the **entire** stock kit on day one, build and validate your real user flows immediately, and only then invest in customizing tokens and components — as deliberate decisions informed by what the flows revealed.
@@ -53,7 +55,7 @@ In any Claude Code session:
 /flatpack
 ```
 
-…or just say what you want: *"spin up a new system called acme-app in ~/projects"*. Claude scaffolds, wires, verifies (typecheck + build + a running dev server), and hands you the report.
+…or just say what you want: *"spin up a new system called acme-app in ~/projects"*. Claude scaffolds, wires, verifies (typecheck + build + a running dev server), and hands you the report. Ask for a shareable link and — if your Vercel CLI is logged in — it deploys and hands you a public URL for stakeholders too.
 
 Two shapes are supported:
 
