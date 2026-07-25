@@ -1,6 +1,22 @@
 // Reusable motion variants — animation presets for the design system.
 import type { Variants, Transition } from "motion/react"
 
+// Motion tokens — duration and easing values for consistent animation timing.
+export const motionTokens = {
+  duration: {
+    fast: { value: "150ms", label: "Fast", description: "Micro-interactions, toggles, tooltips" },
+    normal: { value: "250ms", label: "Normal", description: "Standard transitions, hover states" },
+    slow: { value: "400ms", label: "Slow", description: "Page transitions, modals, complex animations" },
+    slower: { value: "600ms", label: "Slower", description: "Elaborate entrances, staggered lists" },
+  },
+  easing: {
+    "ease-in": { value: "cubic-bezier(0.4, 0, 1, 1)", label: "Ease In", description: "Elements leaving the screen" },
+    "ease-out": { value: "cubic-bezier(0, 0, 0.2, 1)", label: "Ease Out", description: "Elements entering the screen" },
+    "ease-in-out": { value: "cubic-bezier(0.4, 0, 0.2, 1)", label: "Ease In Out", description: "Elements moving across screen" },
+    spring: { value: "cubic-bezier(0.34, 1.56, 0.64, 1)", label: "Spring", description: "Playful, bouncy interactions" },
+  },
+} as const
+
 // Transition presets
 export const transitions = {
   fast: { duration: 0.15, ease: [0, 0, 0.2, 1] } satisfies Transition,
