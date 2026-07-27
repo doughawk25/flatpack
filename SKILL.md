@@ -1,9 +1,9 @@
 ---
-name: flatpack
-description: Scaffold a complete, product-ready design-system foundation from scratch — Next.js (App Router) + Tailwind v4 + the FULL shadcn/ui component kit + motion.dev + next-themes — all stock defaults, verified working. Use this whenever someone wants to start a new product or web project, spin up a design system, prototype and validate user flows or UX before customizing components, bootstrap a UI foundation, or says anything like "flatpack", "new system", "fresh project", "scaffold the base", "set up shadcn from scratch". Do NOT use for adding features or components to an existing project.
+name: monad
+description: Scaffold a complete, product-ready design-system foundation from scratch — Next.js (App Router) + Tailwind v4 + the FULL shadcn/ui component kit + motion.dev + next-themes — all stock defaults, verified working. Use this whenever someone wants to start a new product or web project, spin up a design system, prototype and validate user flows or UX before customizing components, bootstrap a UI foundation, or says anything like "monad", "new system", "fresh project", "scaffold the base", "set up shadcn from scratch". Do NOT use for adding features or components to an existing project.
 ---
 
-# Flatpack
+# Monad
 
 Scaffold a complete design-system foundation a team can build real product screens on the same day. The target user is a product team that wants to design and validate user flows and UX *first* — using a full, coherent, stock component kit — and only then invest in customizing tokens and components. Everything ships at stock defaults on purpose: stock is coherent, accessible, and theme-ready, so nothing blocks flow-building, and every later customization is a deliberate decision instead of scaffold debris.
 

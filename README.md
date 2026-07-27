@@ -1,21 +1,21 @@
-# Flatpack
+# Monad
 
-**A Claude Code skill that scaffolds a complete, product-ready design-system foundation in minutes — full component kit, forms, charts, theming, and motion, all stock, all verified working.**
+**A Claude Code skill that scaffolds a complete, product-ready design-system foundation in minutes — full component kit, forms, charts, theming, motion, and a built-in system browser, all stock, all verified working.**
 
-Like the name says: everything arrives in one box, assembles itself, and you customize it *after* it's standing.
+Everything arrives in one box, assembles itself, and you customize it *after* it's standing.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/flatpack-dark.png">
-  <img alt="A Flatpack scaffold showing forms, charts, controls, tables, tabs, and avatars in light mode" src="assets/flatpack-light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/monad-dark.png">
+  <img alt="A Monad scaffold: left-nav system browser over foundations and all components, with a kitchen-sink overview page" src="assets/monad-light.png">
 </picture>
 
 *An actual scaffold output — and exactly what the skill installs for you, showcase included (it's bundled in [`assets/showcase/`](assets/showcase/) and copied in during scaffold, not rebuilt each time). Light and dark ship working out of the box.*
 
-**[Live demo →](https://flatpack-demo.vercel.app)** — click through every component and foundation yourself. The demo's source is in [`demo/`](demo/).
+**[Live demo →](https://monad-demo-two.vercel.app)** — click through every component and foundation yourself. The demo's source is in [`demo/`](demo/).
 
 ## Why
 
-Product teams lose weeks at the start of a project wiring up the same foundation — and then lose more time validating UX on a half-stocked starter where every missing component stalls a flow. Flatpack inverts that: you get the **entire** stock kit on day one, build and validate your real user flows immediately, and only then invest in customizing tokens and components — as deliberate decisions informed by what the flows revealed.
+Product teams lose weeks at the start of a project wiring up the same foundation — and then lose more time validating UX on a half-stocked starter where every missing component stalls a flow. Monad inverts that: you get the **entire** stock kit on day one, build and validate your real user flows immediately, and only then invest in customizing tokens and components — as deliberate decisions informed by what the flows revealed.
 
 Stock is the point. The default kit is coherent, accessible, and theme-ready, so nothing blocks flow-building and nothing you'd later undo gets baked in.
 
@@ -44,7 +44,7 @@ The skill also encodes the drift gotchas that break naive setups right now: the 
 Clone this repo into your Claude Code skills directory:
 
 ```bash
-git clone https://github.com/doughawk25/flatpack.git ~/.claude/skills/flatpack
+git clone https://github.com/doughawk25/monad.git ~/.claude/skills/monad
 ```
 
 That's it — Claude Code picks it up automatically.
@@ -54,10 +54,10 @@ That's it — Claude Code picks it up automatically.
 In any Claude Code session:
 
 ```
-/flatpack
+/monad
 ```
 
-…or just say what you want: *"spin up a new system called acme-app in ~/projects"*. Claude scaffolds, wires, verifies (typecheck + build + a running dev server), and hands you the report. Ask for a shareable link and — if your Vercel CLI is logged in — it deploys and hands you a public URL for stakeholders too.
+…or just say what you want: *"spin up a new system called acme-app in ~/projects"*. Claude scaffolds, wires, installs the showcase, verifies (typecheck + build + a running dev server), and hands you the report. Ask for a shareable link and — if your Vercel CLI is logged in — it deploys and hands you a public URL for stakeholders too.
 
 Two shapes are supported:
 
@@ -73,14 +73,14 @@ pnpm is optional — the skill falls back to `npx pnpm` on machines without it.
 
 ## The workflow it's built for
 
-1. **Flatpack** a fresh project (minutes).
-2. **Build your real user flows** on the stock kit — signup, checkout, dashboards, settings — with zero component gaps.
+1. **Scaffold** a fresh project (minutes).
+2. **Build your real user flows** on the stock kit — signup, checkout, dashboards, settings — with zero component gaps, using the built-in showcase as your team's component reference.
 3. **Validate the UX** with users and stakeholders while the design is neutral and nobody's attached to pixels.
 4. **Then customize** — tokens first (colors, radii, fonts in `globals.css`), component source second. You own all of it; there's no library to fork or fight.
 
 ## Status
 
-- ✅ React / Next.js — execution-tested end to end (scaffold → typecheck → production build → visual check)
+- ✅ React / Next.js — execution-tested end to end (scaffold → showcase install → typecheck → production build → visual check)
 - 🔜 Vue (Nuxt + shadcn-vue) and Svelte (SvelteKit + shadcn-svelte) variants
 
 ---

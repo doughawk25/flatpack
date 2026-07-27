@@ -23,7 +23,7 @@ export function AppSidebar() {
     <Sidebar>
       <SidebarHeader className="px-4 py-4">
         <Link href="/" className="flex items-baseline gap-2">
-          <span className="text-lg font-semibold tracking-tight">Flatpack</span>
+          <span className="text-lg font-semibold tracking-tight">Monad</span>
           <span className="text-xs text-muted-foreground">stock kit</span>
         </Link>
       </SidebarHeader>

@@ -4,7 +4,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { AppSidebar } from "@/components/app-sidebar";
 import { Toaster } from "@/components/ui/sonner";
-import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarChevronTrigger } from "@/components/sidebar-chevron-trigger";
 import { Separator } from "@/components/ui/separator";
 import "./globals.css";
 
@@ -21,7 +22,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Flatpack — the stock kit, fully assembled",
+  title: "Monad — the stock kit, fully assembled",
   description:
     "A complete design-system foundation: Next.js, Tailwind v4, the full shadcn/ui kit, motion, and theming — all stock, all working.",
 };
@@ -46,13 +47,14 @@ export default function RootLayout({
 
 
 
+
           disableTransitionOnChange
         >
           <SidebarProvider>
             <AppSidebar />
             <SidebarInset>
               <header className="sticky top-0 z-10 flex h-14 shrink-0 items-center gap-2 border-b bg-background/80 px-4 backdrop-blur">
-                <SidebarTrigger className="-ml-1" />
+                <SidebarChevronTrigger className="-ml-1" />
                 <Separator orientation="vertical" className="mr-2 h-4" />
                 <span className="text-sm text-muted-foreground">
                   Validate flows on stock. Customize later.
