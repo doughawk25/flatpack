@@ -10,7 +10,7 @@ const shadows = [
 
 export default function ShadowsPage() {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="mx-auto flex w-full max-w-5xl flex-col gap-8">
       <header>
         <h1 className="text-2xl font-semibold tracking-tight">Shadows</h1>
         <p className="text-muted-foreground">

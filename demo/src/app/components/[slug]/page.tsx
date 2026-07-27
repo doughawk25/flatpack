@@ -27,7 +27,7 @@ export default async function ComponentPage({
   )
 
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-col gap-8">
+    <div className="mx-auto flex w-full max-w-5xl flex-col gap-8">
       <header className="flex flex-col gap-1">
         <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
           Components
