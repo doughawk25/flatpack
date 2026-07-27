@@ -5,6 +5,7 @@ export type NavItem = {
 }
 
 export const foundations: NavItem[] = [
+  { slug: "logo", title: "Logo", description: "The wordmark, its color behavior, and the rules that keep it legible." },
   { slug: "colors", title: "Colors", description: "Every color token in the system, as CSS variables that flip with the theme." },
   { slug: "typography", title: "Typography", description: "Font stacks, the type scale, and weights." },
   { slug: "spacing", title: "Spacing", description: "The spacing scale utilities are built on." },

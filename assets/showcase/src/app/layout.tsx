@@ -6,6 +6,7 @@ import { AppSidebar } from "@/components/app-sidebar";
 import { Toaster } from "@/components/ui/sonner";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { SidebarChevronTrigger } from "@/components/sidebar-chevron-trigger";
+import { SiteBreadcrumb } from "@/components/site-breadcrumb";
 import { Separator } from "@/components/ui/separator";
 import "./globals.css";
 
@@ -47,6 +48,7 @@ export default function RootLayout({
 
 
 
+
           disableTransitionOnChange
         >
           <SidebarProvider>
@@ -55,9 +57,7 @@ export default function RootLayout({
               <header className="sticky top-0 z-10 flex h-14 shrink-0 items-center gap-2 border-b bg-background/80 px-4 backdrop-blur">
                 <SidebarChevronTrigger className="-ml-1" />
                 <Separator orientation="vertical" className="mr-2 h-4" />
-                <span className="text-sm text-muted-foreground">
-                  Validate flows on stock. Customize later.
-                </span>
+                <SiteBreadcrumb />
                 <div className="ml-auto">
                   <ThemeToggle />
                 </div>

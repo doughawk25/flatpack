@@ -5,11 +5,10 @@ import { CheckIcon, CopyIcon, Image as ImageIcon, Square } from "lucide-react"
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-// A photo-like gradient so components can be judged over imagery without
-// shipping a binary asset.
 const imageBackground = {
-  backgroundImage:
-    "linear-gradient(135deg, oklch(0.65 0.18 250) 0%, oklch(0.6 0.2 300) 35%, oklch(0.7 0.17 20) 70%, oklch(0.8 0.15 80) 100%)",
+  backgroundImage: "url(/example-bg.jpg)",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
 }
 
 export function ComponentPreview({

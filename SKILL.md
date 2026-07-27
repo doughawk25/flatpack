@@ -102,11 +102,14 @@ Also add a `typecheck` script to `package.json` (`"typecheck": "tsc --noEmit"`) 
 
 ## Step 4: Install the showcase
 
-This skill bundles a complete, pre-built showcase site in `assets/showcase/` (resolve it relative to this SKILL.md's own directory). It turns the scaffold into a browsable system: a left sidebar listing **Foundations** (Colors with semantic tokens + the 22 primitive Tailwind ramps, Typography, Spacing, Radius, Shadows, Motion with duration/easing tokens and replayable variants, Icons) and **Components** (a live demo page for every one of the ~60 installed components), plus a kitchen-sink Overview home page. Copy it in wholesale — do NOT rebuild any of it by hand:
+This skill bundles a complete, pre-built showcase site in `assets/showcase/` (resolve it relative to this SKILL.md's own directory). It turns the scaffold into a browsable system: a left sidebar listing **Foundations** (Logo, Colors with semantic tokens + the 22 primitive Tailwind ramps, Typography, Spacing, Radius, Shadows, Motion with duration/easing tokens and replayable variants, Icons) and **Components** (a live demo page for every one of the ~60 installed components, each with Preview/Code tabs and a plain/imagery background toggle), plus a kitchen-sink Overview home page, a clickable breadcrumb header, and an animated chevron sidebar trigger. Copy it in wholesale — do NOT rebuild any of it by hand:
 
 ```bash
 cp -R <skill-dir>/assets/showcase/src/. <project>/src/
+cp -R <skill-dir>/assets/showcase/public/. <project>/public/
 ```
+
+The `public/` copy carries `example-bg.jpg` — the backdrop behind each component's imagery toggle, for judging surfaces and contrast over a busy background.
 
 The copy intentionally overwrites `src/app/page.tsx` and `src/app/layout.tsx` (the layout wires ThemeProvider, Toaster, and the sidebar shell — everything Step 3 describes is already done in it; treat Step 3's snippets as documentation of what you're getting, not work to redo). It never touches `src/components/ui/` or `globals.css`, so the shadcn install and your font fix stay as-is. The demo files are also a working reference for the stack's idioms (Base UI `render` prop, field composition, `standardSchemaResolver` forms, motion imports).
 

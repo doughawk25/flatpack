@@ -4,6 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import { navigation } from "@/lib/registry"
+import { MonadLogo } from "@/components/monad-logo"
 import {
   Sidebar,
   SidebarContent,
@@ -22,8 +23,8 @@ export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarHeader className="px-4 py-4">
-        <Link href="/" className="flex items-baseline gap-2">
-          <span className="text-lg font-semibold tracking-tight">Monad</span>
+        <Link href="/" className="flex items-center gap-2.5">
+          <MonadLogo className="h-4 w-auto text-foreground" />
           <span className="text-xs text-muted-foreground">stock kit</span>
         </Link>
       </SidebarHeader>
