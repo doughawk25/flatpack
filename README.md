@@ -1,4 +1,5 @@
-# Monad
+<img width="1920" height="1080" alt="Slide 16_9 - 1" src="https://github.com/user-attachments/assets/c6e3054d-e351-4f92-9109-0a2ca14db268" />
+# FlatPack
 
 **A Claude Code skill that scaffolds a complete, product-ready design-system foundation in minutes — full component kit, forms, charts, theming, motion, and a built-in system browser, all stock, all verified working.**
 
