@@ -5,7 +5,7 @@ const sizes = [
   { label: "Large", height: "h-12", px: "48px" },
   { label: "Default", height: "h-8", px: "32px" },
   { label: "Small", height: "h-5", px: "20px" },
-  { label: "Minimum", height: "h-3", px: "12px" },
+  { label: "Minimum", height: "h-4", px: "16px" },
 ]
 
 export default function LogoPage() {
@@ -17,17 +17,18 @@ export default function LogoPage() {
         </p>
         <h1 className="text-2xl font-semibold tracking-tight">Logo</h1>
         <p className="text-muted-foreground">
-          The wordmark, its color behavior, and the rules that keep it legible.
+          The mark, how it behaves across surfaces, and the rules that keep it
+          legible.
         </p>
       </header>
 
       <section className="flex flex-col gap-4">
-        <h2 className="text-lg font-medium">Primary wordmark</h2>
+        <h2 className="text-lg font-medium">Primary mark</h2>
         <Card className="flex items-center justify-center bg-muted/40 p-16">
-          <MonadLogo className="h-16 w-auto text-foreground" />
+          <MonadLogo className="h-20 w-auto text-foreground" />
         </Card>
         <p className="text-sm text-muted-foreground">
-          The mark is a single SVG path filled with{" "}
+          A single path filled with{" "}
           <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">
             currentColor
           </code>
@@ -39,7 +40,7 @@ export default function LogoPage() {
           <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">
             @/components/monad-logo
           </code>
-          .
+          , or replace that file&apos;s path with your own mark.
         </p>
       </section>
 
@@ -49,19 +50,19 @@ export default function LogoPage() {
           <Card className="flex flex-col gap-3 p-6">
             <h3 className="text-sm font-medium">On light</h3>
             <div className="flex aspect-video items-center justify-center rounded-lg border bg-white">
-              <MonadLogo className="h-8 w-auto text-neutral-950" />
+              <MonadLogo className="h-10 w-auto text-neutral-950" />
             </div>
           </Card>
           <Card className="flex flex-col gap-3 p-6">
             <h3 className="text-sm font-medium">On dark</h3>
             <div className="flex aspect-video items-center justify-center rounded-lg bg-neutral-950">
-              <MonadLogo className="h-8 w-auto text-white" />
+              <MonadLogo className="h-10 w-auto text-white" />
             </div>
           </Card>
           <Card className="flex flex-col gap-3 p-6">
             <h3 className="text-sm font-medium">On brand</h3>
             <div className="flex aspect-video items-center justify-center rounded-lg bg-primary">
-              <MonadLogo className="h-8 w-auto text-primary-foreground" />
+              <MonadLogo className="h-10 w-auto text-primary-foreground" />
             </div>
           </Card>
           <Card className="flex flex-col gap-3 p-6">
@@ -70,7 +71,7 @@ export default function LogoPage() {
               className="flex aspect-video items-center justify-center rounded-lg bg-cover bg-center"
               style={{ backgroundImage: "url(/example-bg.jpg)" }}
             >
-              <MonadLogo className="h-8 w-auto text-white" />
+              <MonadLogo className="h-10 w-auto text-white" />
             </div>
           </Card>
         </div>
@@ -95,8 +96,8 @@ export default function LogoPage() {
           ))}
         </Card>
         <p className="text-sm text-muted-foreground">
-          Never render below 12px tall — the pixel counters close up and the
-          wordmark stops reading.
+          Never render below 16px tall — the inner contours merge and the mark
+          reads as a solid blob.
         </p>
       </section>
 
@@ -104,12 +105,12 @@ export default function LogoPage() {
         <h2 className="text-lg font-medium">Clear space</h2>
         <Card className="flex items-center justify-center p-8">
           <div className="rounded-lg border border-dashed border-border p-8">
-            <MonadLogo className="h-10 w-auto text-foreground" />
+            <MonadLogo className="h-12 w-auto text-foreground" />
           </div>
         </Card>
         <p className="text-sm text-muted-foreground">
-          Keep clear space on all sides equal to the cap height of the mark.
-          Nothing — type, rules, or imagery — enters that margin.
+          Keep clear space on all sides equal to the height of the mark&apos;s
+          outermost ring. Nothing — type, rules, or imagery — enters that margin.
         </p>
       </section>
     </div>

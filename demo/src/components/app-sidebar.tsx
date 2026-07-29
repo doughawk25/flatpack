@@ -23,8 +23,9 @@ export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarHeader className="px-4 py-4">
-        <Link href="/" className="flex items-center gap-2.5">
-          <MonadLogo className="h-4 w-auto text-foreground" />
+        <Link href="/" className="flex items-center gap-2">
+          <MonadLogo className="h-5 w-auto text-foreground" />
+          <span className="text-lg font-semibold tracking-tight">Monad</span>
           <span className="text-xs text-muted-foreground">stock kit</span>
         </Link>
       </SidebarHeader>

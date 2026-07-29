@@ -12,7 +12,7 @@ export default function HoverCardDemo() {
     <div className="flex flex-wrap items-center gap-6">
       <HoverCard>
         <HoverCardTrigger className="text-sm font-medium text-primary underline underline-offset-4">
-          @monad-design
+          @monad
         </HoverCardTrigger>
         <HoverCardContent>
           <div className="flex gap-3">
@@ -20,7 +20,7 @@ export default function HoverCardDemo() {
               <AvatarFallback>MD</AvatarFallback>
             </Avatar>
             <div className="flex flex-col gap-0.5">
-              <p className="text-sm font-medium">Monad Design</p>
+              <p className="text-sm font-medium">Monad</p>
               <p className="text-sm text-muted-foreground">
                 Building a component library on Base UI and Tailwind v4.
               </p>

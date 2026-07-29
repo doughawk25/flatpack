@@ -107,9 +107,12 @@ This skill bundles a complete, pre-built showcase site in `assets/showcase/` (re
 ```bash
 cp -R <skill-dir>/assets/showcase/src/. <project>/src/
 cp -R <skill-dir>/assets/showcase/public/. <project>/public/
+cp <skill-dir>/assets/showcase/CLAUDE.md <project>/CLAUDE.md
 ```
 
 The `public/` copy carries `example-bg.jpg` — the backdrop behind each component's imagery toggle, for judging surfaces and contrast over a busy background.
+
+**`CLAUDE.md` is the durable half of this skill.** This SKILL.md runs once, at scaffold time. `CLAUDE.md` lands in the project root and loads automatically in every future Claude Code session in that repo, so the rules that keep the system coherent — build from the installed kit, style from tokens, keep the showcase in sync, and *stop and ask the user* before inventing a new primitive or changing a token — outlive the scaffold. Copy it and leave it intact: a design system nobody enforces after day one stops being a system.
 
 The copy intentionally overwrites `src/app/page.tsx` and `src/app/layout.tsx` (the layout wires ThemeProvider, Toaster, and the sidebar shell — everything Step 3 describes is already done in it; treat Step 3's snippets as documentation of what you're getting, not work to redo). It never touches `src/components/ui/` or `globals.css`, so the shadcn install and your font fix stay as-is. The demo files are also a working reference for the stack's idioms (Base UI `render` prop, field composition, `standardSchemaResolver` forms, motion imports).
 

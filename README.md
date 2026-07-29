@@ -28,7 +28,7 @@ Run the skill in an empty directory, and a few minutes later:
 | Forms | **react-hook-form + zod**, working with validation day one |
 | Motion | **motion** (motion.dev), plus duration/easing tokens and reusable variants in `src/lib/motion.ts` |
 | Theming | **next-themes** — light/dark wired into the layout with a working toggle |
-| **Showcase** | A built-in system browser: left-nav over every component (live demo + Preview/Code tabs + copy button + image-background toggle) and foundations pages — colors with the 22 primitive Tailwind ramps, typography, spacing, radius, shadows, motion, icons |
+| **Showcase** | A built-in system browser: left-nav over every component (live demo + Preview/Code tabs + copy button + image-background toggle) and foundations pages — logo, colors with the 22 primitive Tailwind ramps, typography, spacing, radius, shadows, motion, icons |
 | Proof | `typecheck` + production build verified green before handoff |
 
 Everything at latest majors, everything stock defaults, plus an initial git commit.
