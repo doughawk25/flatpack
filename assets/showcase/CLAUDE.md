@@ -35,8 +35,9 @@ theme changes.
 - **Motion:** import duration/easing tokens and variants from `src/lib/motion.ts`
   rather than inventing timings, so animation feels like one system.
 - **Type:** the system typeface is IBM Plex (Sans + Mono), loaded in
-  `src/app/layout.tsx` and mapped through `--font-plex-*`. Don't add fonts —
-  type is a token like any other.
+  `src/app/layout.tsx` and mapped through `--font-plex-*`. Don't add fonts ad
+  hoc mid-feature — type is a token like any other. Swapping the typeface is a
+  customization; see the recipes below.
 
 ## Stack facts that will save you a bad hour
 
@@ -65,6 +66,40 @@ This is the case that matters most. In order:
 
 The same applies to changing tokens: adjusting a color, radius, or type scale
 changes every screen at once. Propose it, don't just do it.
+
+**Scope check:** this escalation rule is about changes *you* would initiate
+while building a feature. When the user explicitly asks to customize the system
+— new brand color, different typeface, tighter radii — that's not a violation,
+it's the product working as intended. Do it directly, using the recipes below.
+
+## Customizing the system
+
+Customization is phase two of this system's whole workflow — validate flows on
+stock, then reshape the tokens once the flows have taught you what to change.
+These are the standard asks and exactly where each one lands, so a one-line
+request is enough:
+
+- **"Change the brand color to ___"** → edit `--primary` and
+  `--primary-foreground` in `src/app/globals.css`, in BOTH `:root` and `.dark`
+  (values are oklch). Verify contrast in both themes.
+- **"Make it rounder / sharper"** → change `--radius` in `:root`. Every
+  `rounded-*` class derives from it, so one line reshapes the whole system.
+- **"Swap the typeface"** → change the `next/font` imports in
+  `src/app/layout.tsx`, then point the `@theme inline` font mapping in
+  `globals.css` at the new variables. (Beware the circular-mapping trap:
+  `--font-sans` must reference the *loaded font's* variable, never itself.)
+- **"Add an accent / status color"** → define the variable in `:root` and
+  `.dark`, map it as `--color-<name>` in the `@theme inline` block, then use it
+  as `bg-<name>` / `text-<name>` like any built-in token.
+- **"Make motion snappier / calmer"** → edit the durations and springs in
+  `src/lib/motion.ts`; everything that animates from tokens updates at once.
+- **"Restyle the buttons / cards / …"** → edit the component source in
+  `src/components/ui/<name>.tsx` directly. It's copied-in source, yours to
+  change — no library to fight.
+- **"Tune dark mode only"** → touch just the `.dark` block in `globals.css`.
+
+After any token change, sweep the showcase (`/foundations`, a few `/components`
+pages) in both themes — it's the fastest way to see a token ripple everywhere.
 
 ## Keep the showcase honest
 
