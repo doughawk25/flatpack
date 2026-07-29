@@ -7,13 +7,6 @@
 
 Everything arrives in one box, assembles itself, and you customize it *after* it's standing.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/monad-dark.png">
-  <img alt="A Monad scaffold: left-nav system browser over foundations and all components, with a kitchen-sink overview page" src="assets/monad-light.png">
-</picture>
-
-*An actual scaffold output — and exactly what the skill installs for you, showcase included (it's bundled in [`assets/showcase/`](assets/showcase/) and copied in during scaffold, not rebuilt each time). Light and dark ship working out of the box.*
-
 **[Live demo →](https://monad-demo-two.vercel.app)** — click through every component and foundation yourself. The demo's source is in [`demo/`](demo/).
 
 ## Why
