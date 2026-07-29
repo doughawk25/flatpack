@@ -34,6 +34,22 @@ theme changes.
   `rounded-*` classes. No arbitrary `p-[13px]`.
 - **Motion:** import duration/easing tokens and variants from `src/lib/motion.ts`
   rather than inventing timings, so animation feels like one system.
+- **Type:** the system typeface is IBM Plex (Sans + Mono), loaded in
+  `src/app/layout.tsx` and mapped through `--font-plex-*`. Don't add fonts —
+  type is a token like any other.
+
+## Stack facts that will save you a bad hour
+
+- **Tailwind v4 is CSS-first.** There is no `tailwind.config.ts` — don't go
+  looking for one. Tokens live in `src/app/globals.css` under `@theme`.
+- **Forms:** react-hook-form + zod, resolved with `standardSchemaResolver` from
+  `@hookform/resolvers/standard-schema`. Do NOT use `zodResolver` — it fails
+  typecheck against zod v4.
+- **Toasts:** call `toast()` from `"sonner"`; its `<Toaster />` is already
+  mounted in the root layout. (`src/components/ui/toast.tsx` is a separate,
+  self-contained Base UI toast system — don't mix the two.)
+- **Animation imports** come from `"motion/react"` (the motion.dev package).
+  framer-motion is its predecessor — don't install it.
 
 ## When something genuinely isn't in the system
 
@@ -53,9 +69,15 @@ changes every screen at once. Propose it, don't just do it.
 ## Keep the showcase honest
 
 The site under `/components` and `/foundations` is the team's reference. If you
-add a component to the system, add its demo page too (`src/components/demos/`
-plus an entry in `src/lib/registry.ts`) — an undocumented component is one the
-next person will rebuild from scratch.
+add a component to the system, register it in all three places — an undocumented
+component is one the next person will rebuild from scratch:
+
+1. `src/components/demos/<slug>-demo.tsx` — the demo itself (default export,
+   `"use client"`).
+2. `src/components/demos/index.tsx` — add the slug to the dynamic-import map,
+   or the page renders "No demo registered".
+3. `src/lib/registry.ts` — title + description; this drives the sidebar, the
+   index grid, and the static routes.
 
 ## Before you call it done
 
