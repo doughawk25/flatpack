@@ -2,7 +2,6 @@ import { AppSidebar } from "@/components/app-sidebar"
 import { SidebarChevronTrigger } from "@/components/sidebar-chevron-trigger"
 import { SiteBreadcrumb } from "@/components/site-breadcrumb"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { Separator } from "@/components/ui/separator"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 
 /**
@@ -16,8 +15,7 @@ export function SystemShell({ children }: { children: React.ReactNode }) {
       <AppSidebar />
       <SidebarInset>
         <header className="sticky top-0 z-10 flex h-14 shrink-0 items-center gap-2 border-b bg-background/80 px-4 backdrop-blur">
-          <SidebarChevronTrigger className="-ml-1" />
-          <Separator orientation="vertical" className="mr-2 h-4" />
+          <SidebarChevronTrigger className="-ml-1 mr-1" />
           <SiteBreadcrumb />
           <div className="ml-auto">
             <ThemeToggle />
