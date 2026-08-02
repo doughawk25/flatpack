@@ -118,7 +118,7 @@ cp -R <skill-dir>/assets/showcase/public/. <project>/public/
 cp <skill-dir>/assets/showcase/CLAUDE.md <project>/CLAUDE.md
 ```
 
-The `public/` copy carries `example-bg.jpg` — the backdrop behind each component's imagery toggle, for judging surfaces and contrast over a busy background.
+The `public/` copy carries `example-bg.jpg` (the backdrop behind each component's imagery toggle, for judging surfaces and contrast over a busy background) and `avatar.jpg` (the avatar demo's profile photo — local so the kit has zero external image dependencies).
 
 **`CLAUDE.md` is the durable half of this skill.** This SKILL.md runs once, at scaffold time. `CLAUDE.md` lands in the project root and loads automatically in every future Claude Code session in that repo, so the rules that keep the system coherent — build from the installed kit, style from tokens, keep the showcase in sync, and *stop and ask the user* before inventing a new primitive or changing a token — outlive the scaffold. Copy it and leave it intact: a design system nobody enforces after day one stops being a system.
 

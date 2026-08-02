@@ -16,15 +16,15 @@ export default function AvatarDemo() {
     <div className="flex flex-col gap-6">
       <div className="flex items-center gap-4">
         <Avatar size="sm">
-          <AvatarImage src="https://github.com/shadcn.png" alt="Doug" />
+          <AvatarImage src="/avatar.jpg" alt="Doug" />
           <AvatarFallback>DH</AvatarFallback>
         </Avatar>
         <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" alt="Doug" />
+          <AvatarImage src="/avatar.jpg" alt="Doug" />
           <AvatarFallback>DH</AvatarFallback>
         </Avatar>
         <Avatar size="lg">
-          <AvatarImage src="https://github.com/shadcn.png" alt="Doug" />
+          <AvatarImage src="/avatar.jpg" alt="Doug" />
           <AvatarFallback>DH</AvatarFallback>
         </Avatar>
       </div>
@@ -40,7 +40,7 @@ export default function AvatarDemo() {
 
       <AvatarGroup>
         <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" alt="Doug" />
+          <AvatarImage src="/avatar.jpg" alt="Doug" />
           <AvatarFallback>DH</AvatarFallback>
         </Avatar>
         <Avatar>

@@ -94,7 +94,7 @@ around; it's the answer. Tell the user what's missing and stop.
    - Set the mount point in `src/lib/system-config.ts`:
      `export const SYSTEM_BASE: string = "/system"` — this one line points
      every sidebar link, breadcrumb, and index card at the wing.
-   - Copy `public/example-bg.jpg` unless a file by that name exists.
+   - Copy `public/example-bg.jpg` and `public/avatar.jpg` unless files by those names exist.
    - Fix the code-tab path: `src/app/system/components/[slug]/page.tsx` reads
      demo source with `fs.readFile` — its path already resolves from
      `process.cwd()`/src/components/demos, which is unchanged. Verify one page
