@@ -1,3 +1,5 @@
+import { SYSTEM_BASE } from "@/lib/system-config"
+
 export type NavItem = {
   slug: string
   title: string
@@ -114,6 +116,6 @@ export const components: NavItem[] = Object.keys(componentDescriptions)
   }))
 
 export const navigation = [
-  { title: "Foundations", base: "/foundations", items: foundations },
-  { title: "Components", base: "/components", items: components },
+  { title: "Foundations", base: `${SYSTEM_BASE}/foundations`, items: foundations },
+  { title: "Components", base: `${SYSTEM_BASE}/components`, items: components },
 ] as const

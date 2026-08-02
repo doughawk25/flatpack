@@ -1,13 +1,8 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { AppSidebar } from "@/components/app-sidebar";
+import { SystemShell } from "@/components/system-shell";
 import { Toaster } from "@/components/ui/sonner";
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-import { SidebarChevronTrigger } from "@/components/sidebar-chevron-trigger";
-import { SiteBreadcrumb } from "@/components/site-breadcrumb";
-import { Separator } from "@/components/ui/separator";
 import "./globals.css";
 
 const plexSans = IBM_Plex_Sans({
@@ -44,28 +39,9 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
           enableSystem
-
-
-
-
-
-
           disableTransitionOnChange
         >
-          <SidebarProvider>
-            <AppSidebar />
-            <SidebarInset>
-              <header className="sticky top-0 z-10 flex h-14 shrink-0 items-center gap-2 border-b bg-background/80 px-4 backdrop-blur">
-                <SidebarChevronTrigger className="-ml-1" />
-                <Separator orientation="vertical" className="mr-2 h-4" />
-                <SiteBreadcrumb />
-                <div className="ml-auto">
-                  <ThemeToggle />
-                </div>
-              </header>
-              <div className="flex-1 p-6 md:p-10">{children}</div>
-            </SidebarInset>
-          </SidebarProvider>
+          <SystemShell>{children}</SystemShell>
           <Toaster />
         </ThemeProvider>
       </body>

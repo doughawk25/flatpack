@@ -1,20 +1,26 @@
 ---
 name: monad
-description: Scaffold a complete, product-ready design-system foundation from scratch — Next.js (App Router) + Tailwind v4 + the FULL shadcn/ui component kit + motion.dev + next-themes — all stock defaults, verified working. Use this whenever someone wants to start a new product or web project, spin up a design system, prototype and validate user flows or UX before customizing components, bootstrap a UI foundation, or says anything like "monad", "new system", "fresh project", "scaffold the base", "set up shadcn from scratch". Do NOT use for adding features or components to an existing project.
+description: Scaffold a complete, product-ready design-system foundation from scratch — Next.js (App Router) + Tailwind v4 + the FULL shadcn/ui component kit + motion.dev + next-themes — all stock defaults, verified working. Use this whenever someone wants to start a new product or web project, spin up a design system, prototype and validate user flows or UX before customizing components, bootstrap a UI foundation, or says anything like "monad", "new system", "fresh project", "scaffold the base", "set up shadcn from scratch", "add this system to my existing app". Also use it to INSTALL the system into an existing Next.js app ("add the design system to my app", "install monad here") — it mounts a /system wing without touching the host app. Do NOT use for one-off feature work or adding a single component.
 ---
 
 # Monad
 
 Scaffold a complete design-system foundation a team can build real product screens on the same day. The target user is a product team that wants to design and validate user flows and UX *first* — using a full, coherent, stock component kit — and only then invest in customizing tokens and components. Everything ships at stock defaults on purpose: stock is coherent, accessible, and theme-ready, so nothing blocks flow-building, and every later customization is a deliberate decision instead of scaffold debris.
 
-## Step 0: Decide the shape
+## Step 0: Detect the mode
 
-Two shapes are supported:
+Look at the target directory and what the user said. What they say always wins; the directory decides otherwise:
 
-- **Single app** (default) — one Next.js app. Fastest path to building screens. Use unless told otherwise.
-- **Monorepo** — pnpm workspaces + Turborepo with `apps/site` + `packages/ui|tokens|config`, for teams that plan to publish or share the system across apps. Use when the user mentions packages, a registry, multiple apps, or publishing components. Read [references/monorepo.md](references/monorepo.md) and follow it instead of the steps below.
+| Signal in the target directory | Mode |
+|---|---|
+| Empty, or no `package.json` | **Greenfield** — continue with Step 1 below |
+| `package.json` with `next` + `src/app/` | **Existing app** — STOP here and follow [references/existing-project.md](references/existing-project.md) instead of Steps 1–4. It installs the system additively under a `/system` wing, adopts the host's brand tokens, and never overwrites their layout, pages, or customized components |
+| `package.json` without `next` (Vite, CRA, Remix…) | Unsupported — explain this system is Next.js App Router only, and stop |
+| `pnpm-workspace.yaml` / `turbo.json` at the root | Monorepo — ask which app to target (existing-app mode inside it), or for a NEW monorepo-shaped system read [references/monorepo.md](references/monorepo.md) |
 
-Ask for the project name if not given. Scaffold in the directory the user specifies — confirm the location before creating it.
+The wrong guess here overwrites someone's homepage — when the directory signals conflict with what the user said, ask one clarifying question instead of proceeding.
+
+For greenfield: ask for the project name if not given, and confirm the location before creating it.
 
 ## Step 1: Create the Next.js app
 
@@ -26,7 +32,7 @@ This gives Next.js (App Router) + TypeScript + Tailwind v4 (CSS-first config via
 
 Two environment gotchas to expect:
 
-- **No pnpm on the machine?** Run every `pnpm`/`pnpm dlx` command as `npx -y pnpm@latest <args>` (or `corepack enable` first if corepack exists).
+- **No pnpm on the machine?** Run every `pnpm`/`pnpm dlx` command as `npx -y pnpm@latest <args>` (or `corepack enable` first if corepack exists). Wrap the WHOLE command, dlx included — e.g. Step 1 becomes `npx -y pnpm@latest dlx create-next-app@latest <name> ...` (wrapping only `create-next-app` crashes with `spawn pnpm ENOENT`).
 - **pnpm v11 blocks postinstall scripts** and may report "pnpm install has failed" with `ERR_PNPM_IGNORED_BUILDS` for `sharp`/`unrs-resolver` even though the scaffold is fine. Non-interactive fix (`pnpm approve-builds` prompts): replace the auto-generated `pnpm-workspace.yaml` contents with just the block below (pnpm also writes an `ignoredBuiltDependencies` list and placeholder `allowBuilds` values — remove them, or they re-suppress the builds), then `pnpm install` again:
 
 ```yaml
@@ -50,7 +56,9 @@ pnpm dlx shadcn@latest init -d
 --font-sans: var(--font-plex-sans);
 --font-mono: var(--font-plex-mono);
 --font-heading: var(--font-plex-sans);
-``` The current default style is **base-nova, built on `@base-ui/react`** — not Radix. That means: triggers compose via Base UI's `render` prop (not `asChild`), there is no `form` component (form patterns use `field.tsx`; `shadcn add form` silently installs nothing), and `vaul`/Radix primitives are absent. Don't fight this; it's the stock kit.
+```
+
+The current default style is **base-nova, built on `@base-ui/react`** — not Radix. That means: triggers compose via Base UI's `render` prop (not `asChild`), there is no `form` component (form patterns use `field.tsx`; `shadcn add form` silently installs nothing), and `vaul`/Radix primitives are absent. Don't fight this; it's the stock kit.
 
 Then pull in the **entire** component library — the result should be product-ready, not a starter kit:
 
@@ -114,7 +122,7 @@ The `public/` copy carries `example-bg.jpg` — the backdrop behind each compone
 
 **`CLAUDE.md` is the durable half of this skill.** This SKILL.md runs once, at scaffold time. `CLAUDE.md` lands in the project root and loads automatically in every future Claude Code session in that repo, so the rules that keep the system coherent — build from the installed kit, style from tokens, keep the showcase in sync, and *stop and ask the user* before inventing a new primitive or changing a token — outlive the scaffold. Copy it and leave it intact: a design system nobody enforces after day one stops being a system.
 
-The copy intentionally overwrites `src/app/page.tsx` and `src/app/layout.tsx` (the layout wires ThemeProvider, Toaster, and the sidebar shell — everything Step 3 describes is already done in it; treat Step 3's snippets as documentation of what you're getting, not work to redo). It never touches `src/components/ui/` or `globals.css`, so the shadcn install and your font fix stay as-is. The demo files are also a working reference for the stack's idioms (Base UI `render` prop, field composition, `standardSchemaResolver` forms, motion imports).
+The copy intentionally overwrites `src/app/page.tsx` and `src/app/layout.tsx` (the layout wires ThemeProvider, Toaster, and the sidebar shell — everything Step 3 describes is already done in it; treat Step 3's snippets as documentation of what you're getting, not work to redo). It never touches `src/components/ui/` or `globals.css`, so the shadcn install and your font fix stay as-is. The demo files are also a working reference for the stack's idioms (Base UI `render` prop, field composition, `standardSchemaResolver` forms, motion imports). (Greenfield only — in existing-app mode the playbook mounts everything under /system and overwrites nothing.)
 
 Then verify in this order:
 
@@ -122,7 +130,9 @@ Then verify in this order:
 pnpm typecheck && pnpm build
 ```
 
-Both must pass clean — a successful production build proves the whole stack compiles together. Then:
+Both must pass clean — a successful production build proves the whole stack compiles together.
+
+Known wart, so you're not surprised: `pnpm lint` currently fails on two files the shadcn registry itself generates (`ui/carousel.tsx`, `hooks/use-mobile.ts` — upstream `react-hooks/set-state-in-effect` violations). That's the vendor's bug, not the scaffold's; don't chase it, don't gate the handoff on lint, and mention it in the handoff report so the team doesn't think they broke it. Then:
 
 ```bash
 pnpm dev

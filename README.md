@@ -72,9 +72,10 @@ In any Claude Code session:
 
 …or just say what you want: *"spin up a new system called acme-app in ~/projects"*. Claude scaffolds, wires, installs the showcase, verifies (typecheck + build + a running dev server), and hands you the report. Ask for a shareable link and — if your Vercel CLI is logged in — it deploys and hands you a public URL for stakeholders too.
 
-Two shapes are supported:
+Three shapes are supported — the skill auto-detects which one fits from the directory it's pointed at, and what you say always overrides:
 
 - **Single app** (default) — one Next.js app, fastest path to building screens.
+- **Existing app** — *"add the design system to my app."* Installs additively into a Next.js App Router + Tailwind v4 project: the showcase mounts as a `/system` wing, only *missing* components get added (your customized ones are never overwritten), providers are merged into your layout rather than replacing it, and your brand — colors, fonts, radius — is detected and mapped into the system tokens (it asks, with concrete options, when the signal is ambiguous). Requires a clean git tree; every step lands as its own revertable commit.
 - **Monorepo** — pnpm workspaces + Turborepo (`apps/site` + `packages/ui|tokens|config`) for teams that plan to publish or share the system across apps. Ask for "the monorepo shape."
 
 ## Requirements
@@ -93,7 +94,8 @@ pnpm is optional — the skill falls back to `npx pnpm` on machines without it.
 
 ## Status
 
-- ✅ React / Next.js — execution-tested end to end (scaffold → showcase install → typecheck → production build → visual check)
+- ✅ React / Next.js greenfield — execution-tested end to end (scaffold → showcase install → typecheck → production build → visual check)
+- ✅ Existing-app install — adversarially tested: host pages verified byte-identical after install, customized components survive collisions, brand adoption maps real colors with WCAG-checked dark variants, and non-Next / Tailwind v3 projects get a clean refusal with zero files touched
 - 🔜 Vue (Nuxt + shadcn-vue) and Svelte (SvelteKit + shadcn-svelte) variants
 
 ---

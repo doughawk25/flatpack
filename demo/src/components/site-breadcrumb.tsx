@@ -4,6 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import { components, foundations } from "@/lib/registry"
+import { SYSTEM_BASE, sys } from "@/lib/system-config"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -16,10 +17,14 @@ import {
 type Crumb = { title: string; href?: string }
 
 function crumbsFor(pathname: string): Crumb[] {
-  const [, section, slug] = pathname.split("/")
+  // Parse relative to the mount point so the trail works at / and at /system.
+  const local = SYSTEM_BASE && pathname.startsWith(SYSTEM_BASE)
+    ? pathname.slice(SYSTEM_BASE.length) || "/"
+    : pathname
+  const [, section, slug] = local.split("/")
 
   if (section === "components") {
-    const crumbs: Crumb[] = [{ title: "Components", href: slug ? "/components" : undefined }]
+    const crumbs: Crumb[] = [{ title: "Components", href: slug ? sys("/components") : undefined }]
     if (slug) {
       const entry = components.find((c) => c.slug === slug)
       crumbs.push({ title: entry?.title ?? slug })
@@ -28,7 +33,7 @@ function crumbsFor(pathname: string): Crumb[] {
   }
 
   if (section === "foundations") {
-    const crumbs: Crumb[] = [{ title: "Foundations", href: slug ? "/foundations" : undefined }]
+    const crumbs: Crumb[] = [{ title: "Foundations", href: slug ? sys("/foundations") : undefined }]
     if (slug) {
       const entry = foundations.find((f) => f.slug === slug)
       crumbs.push({ title: entry?.title ?? slug })

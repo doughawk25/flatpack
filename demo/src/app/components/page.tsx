@@ -1,6 +1,7 @@
 import Link from "next/link"
 
 import { components } from "@/lib/registry"
+import { sys } from "@/lib/system-config"
 
 export default function ComponentsIndex() {
   return (
@@ -16,7 +17,7 @@ export default function ComponentsIndex() {
         {components.map((c) => (
           <Link
             key={c.slug}
-            href={`/components/${c.slug}`}
+            href={sys(`/components/${c.slug}`)}
             className="group rounded-lg border bg-card p-4 transition-colors hover:border-foreground/20 hover:bg-accent/50"
           >
             <h2 className="text-sm font-medium group-hover:underline">

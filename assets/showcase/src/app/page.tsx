@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
+import { sys } from "@/lib/system-config"
 import { motion } from "motion/react"
 import { useForm } from "react-hook-form"
 import { standardSchemaResolver } from "@hookform/resolvers/standard-schema"
@@ -161,13 +162,13 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
-              href="/components"
+              href={sys("/components")}
               className="inline-flex items-center gap-1 text-sm font-medium underline-offset-4 hover:underline"
             >
               Browse all components <ArrowRight className="size-3.5" />
             </Link>
             <Link
-              href="/foundations"
+              href={sys("/foundations")}
               className="inline-flex items-center gap-1 text-sm font-medium underline-offset-4 hover:underline"
             >
               See the foundations <ArrowRight className="size-3.5" />

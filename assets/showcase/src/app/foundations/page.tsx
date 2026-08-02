@@ -1,6 +1,7 @@
 import Link from "next/link"
 
 import { foundations } from "@/lib/registry"
+import { sys } from "@/lib/system-config"
 
 export default function FoundationsIndex() {
   return (
@@ -16,7 +17,7 @@ export default function FoundationsIndex() {
         {foundations.map((f) => (
           <Link
             key={f.slug}
-            href={`/foundations/${f.slug}`}
+            href={sys(`/foundations/${f.slug}`)}
             className="group rounded-lg border bg-card p-4 transition-colors hover:border-foreground/20 hover:bg-accent/50"
           >
             <h2 className="text-sm font-medium group-hover:underline">
